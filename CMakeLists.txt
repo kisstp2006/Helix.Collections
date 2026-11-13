@@ -30,9 +30,12 @@ add_custom_target(helix_collections_assembly ALL DEPENDS "${collections_dll}")
 add_dependencies(helix_collections_assembly helix_core_module)
 set(HELIX_COLLECTIONS_ASSEMBLY "${collections_dll}" CACHE INTERNAL "")
 
-# Tests: the containers under the .NET host of the desktop, with the shared engine (its jobs and memory).
+# Tests: the containers under the .NET host, with the engine (its jobs and memory): the shared engine on the desktop,
+# a web app in node on the Web.
 if(HELIX_PLATFORM STREQUAL "windows" OR HELIX_PLATFORM STREQUAL "linux")
     helix_add_test_suite(helix_collections_tests EXCLUDE "/Managed/" DEPS Helix::EngineShared Helix::Collections)
+elseif(HELIX_PLATFORM STREQUAL "web")
+    helix_add_test_suite(helix_collections_tests DOTNET EXCLUDE "/Managed/" DEPS Helix::Engine Helix::Collections)
 endif()
 if(TARGET helix_collections_tests)
     set(tests_dir "${CMAKE_CURRENT_SOURCE_DIR}/Tests")
@@ -50,6 +53,16 @@ if(TARGET helix_collections_tests)
     add_dependencies(helix_collections_tests helix_collections_test_assembly)
     target_compile_definitions(helix_collections_tests PRIVATE "HX_TEST_RUNTIME_ASSEMBLY=\"${HELIX_SCRIPTING_RUNTIME}\"" "HX_TEST_CORE_MODULE=\"${HELIX_CORE_MODULE}\""
                                                                "HX_TEST_ASSEMBLY=\"${tests_dll}\"")
+    # The web app's assemblies.
+    set_property(TARGET helix_collections_tests APPEND PROPERTY HELIX_DOTNET_ASSEMBLIES "${HELIX_CORE_MODULE}" ${HELIX_CORE_MODULE_REFERENCES} "${collections_dll}" "${tests_dll}")
+    if(TARGET helix_collections_tests_web)
+        add_dependencies(helix_collections_tests_web helix_collections_test_assembly)
+    endif()
+    # Once more on the coreclr starter (as Android hosts the runtime).
+    if(HELIX_PLATFORM STREQUAL "windows" OR HELIX_PLATFORM STREQUAL "linux")
+        add_test(NAME helix_collections_tests_coreclr COMMAND helix_collections_tests)
+        set_tests_properties(helix_collections_tests_coreclr PROPERTIES ENVIRONMENT "HELIX_DOTNET_RUNTIME=coreclr")
+    endif()
 endif()
 
 # The public surface of Helix.Collections against its inventory (Tests/Api/Helix.Collections.csv), with Helix.ScriptCore's tool.
@@ -63,4 +76,8 @@ endif()
 if(TEST helix_collections_tests AND HELIX_ENABLE_ASAN AND HELIX_PLATFORM STREQUAL "linux")
     helix_dependency_dir(scripting_dir Scripting)
     set_tests_properties(helix_collections_tests PROPERTIES ENVIRONMENT "LSAN_OPTIONS=suppressions=${scripting_dir}/Tests/Support/LeakSuppressions.txt")
+    # The run on the coreclr starter keeps its starter and takes the suppressions too.
+    if(TEST helix_collections_tests_coreclr)
+        set_tests_properties(helix_collections_tests_coreclr PROPERTIES ENVIRONMENT "HELIX_DOTNET_RUNTIME=coreclr;LSAN_OPTIONS=suppressions=${scripting_dir}/Tests/Support/LeakSuppressions.txt")
+    endif()
 endif()

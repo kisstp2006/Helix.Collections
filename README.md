@@ -48,6 +48,8 @@ i64 Sum(const helix::collections::NativeArray<helix::i32>* array)
 ```
 
 - Copies of a container struct share its memory; dispose it once (`Dispose()`, or `Dispose(JobHandle)` after a job).
+- C++ code takes a container by pointer everywhere; by value only off the Web (its .NET interpreter passes no struct
+  of several fields by value). The layouts follow the platform's pointer size (4 bytes on the Web).
 - `NativeHashMap` is for one writer at a time; its order is not specified.
 - `NativeQueue.ParallelWriter` and `NativeList.ParallelWriter` may be used by parallel jobs (the list does not grow
   from them: `AddNoResize` within its capacity).

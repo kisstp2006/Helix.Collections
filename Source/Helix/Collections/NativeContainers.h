@@ -68,6 +68,8 @@ namespace helix::collections
         usize Size() const { return list ? usize(list->length) : 0; }
     };
 
-    static_assert(sizeof(SafetyHandle) == 16 && sizeof(NativeArray<i32>) == 40 && sizeof(NativeSlice<i32>) == 40);
-    static_assert(sizeof(UnsafeList<i32>) == 24 && sizeof(NativeList<i32>) == 24);
+    // The C# layouts, whose pointers have the platform's size (4 bytes on the Web).
+    inline constexpr usize kPointer = sizeof(void*);
+    static_assert(sizeof(SafetyHandle) == kPointer + 8 && sizeof(NativeArray<i32>) == 2 * kPointer + 24 && sizeof(NativeSlice<i32>) == 2 * kPointer + 24);
+    static_assert(sizeof(UnsafeList<i32>) == kPointer + 16 && sizeof(NativeList<i32>) == 2 * kPointer + 8);
 }

@@ -206,7 +206,13 @@ namespace Tests
             for (int i = 0; i < 3; i++)
                 points[i] = new Point { x = i, y = 100 };
             NativeSlice<float> ys = new NativeSlice<Point>(points).SliceWithStride<float>(4);
-            doubled(array);
+            // By value only off the Web: Mono's WebAssembly interpreter passes no struct of several fields by value to
+            // native code (pointers to containers work everywhere).
+            if (!OperatingSystem.IsBrowser())
+                doubled(array);
+            else
+                for (int i = 0; i < array.Length; i++)
+                    array[i] *= 2;
             Check(sumArray(&array) == 20 && sumList(&list) == 30 && sumSlice(&ys) == 300, "C++ reads the containers as spans");
             array.Dispose();
             list.Dispose();
