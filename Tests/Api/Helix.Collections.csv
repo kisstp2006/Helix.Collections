@@ -1,0 +1,145 @@
+type,member,signature
+Helix.Collections.AllocatorManager,Invalid,static AllocatorManager.AllocatorHandle Invalid
+Helix.Collections.AllocatorManager,None,static AllocatorManager.AllocatorHandle None
+Helix.Collections.AllocatorManager,Persistent,static AllocatorManager.AllocatorHandle Persistent
+Helix.Collections.AllocatorManager,Temp,static AllocatorManager.AllocatorHandle Temp
+Helix.Collections.AllocatorManager,TempJob,static AllocatorManager.AllocatorHandle TempJob
+Helix.Collections.AllocatorManager.AllocatorHandle,Index,ushort Index
+Helix.Collections.AllocatorManager.AllocatorHandle,IsValid,bool IsValid { get; }
+Helix.Collections.AllocatorManager.AllocatorHandle,ToAllocator,Allocator ToAllocator { get; }
+Helix.Collections.AllocatorManager.AllocatorHandle,Version,ushort Version
+Helix.Collections.AllocatorManager.AllocatorHandle,operators,"Implicit(Allocator) / Equality(AllocatorManager.AllocatorHandle, AllocatorManager.AllocatorHandle) / Inequality(AllocatorManager.AllocatorHandle, AllocatorManager.AllocatorHandle)"
+Helix.Collections.IIndexable,ElementAt,T ElementAt(int)
+Helix.Collections.IIndexable,Length,int Length { get; set; }
+Helix.Collections.INativeDisposable,Dispose,JobHandle Dispose(JobHandle)
+Helix.Collections.INativeList,Capacity,int Capacity { get; set; }
+Helix.Collections.INativeList,Clear,void Clear()
+Helix.Collections.INativeList,IsEmpty,bool IsEmpty { get; }
+Helix.Collections.INativeList,this[],T this[][int] { get; set; }
+Helix.Collections.KVPair,GetKeyValue,"bool GetKeyValue(out TKey, out TValue)"
+Helix.Collections.KVPair,Key,TKey Key { get; }
+Helix.Collections.KVPair,Value,TValue Value { get; }
+Helix.Collections.LowLevel.Unsafe.NativeListUnsafeUtility,GetUnsafePtr,static T* GetUnsafePtr<T>(NativeList<T>)
+Helix.Collections.LowLevel.Unsafe.NativeListUnsafeUtility,GetUnsafeReadOnlyPtr,static T* GetUnsafeReadOnlyPtr<T>(NativeList<T>)
+Helix.Collections.LowLevel.Unsafe.UnsafeList,Allocator,AllocatorManager.AllocatorHandle Allocator
+Helix.Collections.LowLevel.Unsafe.UnsafeList,Ptr,T* Ptr
+Helix.Collections.LowLevel.Unsafe.UnsafeList,m_capacity,int m_capacity
+Helix.Collections.LowLevel.Unsafe.UnsafeList,m_length,int m_length
+Helix.Collections.NativeHashMap,.ctor,"NativeHashMap(int, AllocatorManager.AllocatorHandle)"
+Helix.Collections.NativeHashMap,Add,"void Add(TKey, TValue)"
+Helix.Collections.NativeHashMap,AsReadOnly,"NativeHashMap.ReadOnly<TKey, TValue> AsReadOnly()"
+Helix.Collections.NativeHashMap,Capacity,int Capacity { get; set; }
+Helix.Collections.NativeHashMap,Clear,void Clear()
+Helix.Collections.NativeHashMap,ContainsKey,bool ContainsKey(TKey)
+Helix.Collections.NativeHashMap,Count,int Count { get; }
+Helix.Collections.NativeHashMap,Dispose,void Dispose() / JobHandle Dispose(JobHandle)
+Helix.Collections.NativeHashMap,GetEnumerator,"NativeHashMap.Enumerator<TKey, TValue> GetEnumerator()"
+Helix.Collections.NativeHashMap,GetKeyArray,NativeArray<TKey> GetKeyArray(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeHashMap,GetKeyValueArrays,"NativeKeyValueArrays<TKey, TValue> GetKeyValueArrays(AllocatorManager.AllocatorHandle)"
+Helix.Collections.NativeHashMap,GetValueArray,NativeArray<TValue> GetValueArray(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeHashMap,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeHashMap,IsEmpty,bool IsEmpty { get; }
+Helix.Collections.NativeHashMap,Remove,bool Remove(TKey)
+Helix.Collections.NativeHashMap,TrimExcess,void TrimExcess()
+Helix.Collections.NativeHashMap,TryAdd,"bool TryAdd(TKey, TValue)"
+Helix.Collections.NativeHashMap,TryGetValue,"bool TryGetValue(TKey, out TValue)"
+Helix.Collections.NativeHashMap,this[],TValue this[][TKey] { get; set; }
+Helix.Collections.NativeHashMap.Enumerator,Current,"KVPair<TKey, TValue> Current { get; }"
+Helix.Collections.NativeHashMap.Enumerator,Dispose,void Dispose()
+Helix.Collections.NativeHashMap.Enumerator,MoveNext,bool MoveNext()
+Helix.Collections.NativeHashMap.Enumerator,Reset,void Reset()
+Helix.Collections.NativeHashMap.ReadOnly,Capacity,int Capacity { get; }
+Helix.Collections.NativeHashMap.ReadOnly,ContainsKey,bool ContainsKey(TKey)
+Helix.Collections.NativeHashMap.ReadOnly,Count,int Count { get; }
+Helix.Collections.NativeHashMap.ReadOnly,GetEnumerator,"NativeHashMap.Enumerator<TKey, TValue> GetEnumerator()"
+Helix.Collections.NativeHashMap.ReadOnly,GetKeyArray,NativeArray<TKey> GetKeyArray(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeHashMap.ReadOnly,GetKeyValueArrays,"NativeKeyValueArrays<TKey, TValue> GetKeyValueArrays(AllocatorManager.AllocatorHandle)"
+Helix.Collections.NativeHashMap.ReadOnly,GetValueArray,NativeArray<TValue> GetValueArray(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeHashMap.ReadOnly,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeHashMap.ReadOnly,IsEmpty,bool IsEmpty { get; }
+Helix.Collections.NativeHashMap.ReadOnly,TryGetValue,"bool TryGetValue(TKey, out TValue)"
+Helix.Collections.NativeHashMap.ReadOnly,this[],TValue this[][TKey] { get; }
+Helix.Collections.NativeKeyValueArrays,.ctor,"NativeKeyValueArrays(int, AllocatorManager.AllocatorHandle, NativeArrayOptions)"
+Helix.Collections.NativeKeyValueArrays,Dispose,void Dispose() / JobHandle Dispose(JobHandle)
+Helix.Collections.NativeKeyValueArrays,Keys,NativeArray<TKey> Keys
+Helix.Collections.NativeKeyValueArrays,Length,int Length { get; }
+Helix.Collections.NativeKeyValueArrays,Values,NativeArray<TValue> Values
+Helix.Collections.NativeList,.ctor,"NativeList(AllocatorManager.AllocatorHandle) / NativeList(int, AllocatorManager.AllocatorHandle)"
+Helix.Collections.NativeList,Add,void Add(ref T)
+Helix.Collections.NativeList,AddNoResize,void AddNoResize(T)
+Helix.Collections.NativeList,AddRange,"void AddRange(NativeArray<T>) / void AddRange(Void*, int)"
+Helix.Collections.NativeList,AddRangeNoResize,"void AddRangeNoResize(Void*, int) / void AddRangeNoResize(NativeList)"
+Helix.Collections.NativeList,AddReplicate,"void AddReplicate(ref T, int)"
+Helix.Collections.NativeList,AsArray,NativeArray<T> AsArray()
+Helix.Collections.NativeList,AsDeferredJobArray,NativeArray<T> AsDeferredJobArray()
+Helix.Collections.NativeList,AsParallelReader,NativeArray.ReadOnly<T> AsParallelReader()
+Helix.Collections.NativeList,AsParallelWriter,NativeList.ParallelWriter<T> AsParallelWriter()
+Helix.Collections.NativeList,AsReadOnly,NativeArray.ReadOnly<T> AsReadOnly()
+Helix.Collections.NativeList,Capacity,int Capacity { get; set; }
+Helix.Collections.NativeList,Clear,void Clear()
+Helix.Collections.NativeList,CopyFrom,void CopyFrom(ref NativeArray<T>) / void CopyFrom(ref NativeList) / void CopyFrom(ref UnsafeList<T>)
+Helix.Collections.NativeList,Dispose,void Dispose() / JobHandle Dispose(JobHandle)
+Helix.Collections.NativeList,ElementAt,T ElementAt(int)
+Helix.Collections.NativeList,GetEnumerator,NativeArray.Enumerator<T> GetEnumerator()
+Helix.Collections.NativeList,GetUnsafeList,UnsafeList GetUnsafeList()
+Helix.Collections.NativeList,InsertRange,"void InsertRange(int, int)"
+Helix.Collections.NativeList,InsertRangeWithBeginEnd,"void InsertRangeWithBeginEnd(int, int)"
+Helix.Collections.NativeList,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeList,IsEmpty,bool IsEmpty { get; }
+Helix.Collections.NativeList,Length,int Length { get; set; }
+Helix.Collections.NativeList,RemoveAt,void RemoveAt(int)
+Helix.Collections.NativeList,RemoveAtSwapBack,void RemoveAtSwapBack(int)
+Helix.Collections.NativeList,RemoveRange,"void RemoveRange(int, int)"
+Helix.Collections.NativeList,RemoveRangeSwapBack,"void RemoveRangeSwapBack(int, int)"
+Helix.Collections.NativeList,Resize,"void Resize(int, NativeArrayOptions)"
+Helix.Collections.NativeList,ResizeUninitialized,void ResizeUninitialized(int)
+Helix.Collections.NativeList,SetCapacity,void SetCapacity(int)
+Helix.Collections.NativeList,ToArray,NativeArray<T> ToArray(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeList,TrimExcess,void TrimExcess()
+Helix.Collections.NativeList,operators,Implicit(NativeList)
+Helix.Collections.NativeList,this[],T this[][int] { get; set; }
+Helix.Collections.NativeList.ParallelWriter,AddNoResize,void AddNoResize(T)
+Helix.Collections.NativeList.ParallelWriter,AddRangeNoResize,"void AddRangeNoResize(Void*, int) / void AddRangeNoResize(UnsafeList<T>) / void AddRangeNoResize(NativeList<T>)"
+Helix.Collections.NativeList.ParallelWriter,ListData,UnsafeList ListData
+Helix.Collections.NativeList.ParallelWriter,Ptr,Void* Ptr { get; }
+Helix.Collections.NativeListExtensions,Contains,"static bool Contains<T, U>(NativeList<T>, U)"
+Helix.Collections.NativeListExtensions,IndexOf,"static int IndexOf<T, U>(NativeList<T>, U)"
+Helix.Collections.NativeQueue,.ctor,NativeQueue(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeQueue,AsParallelWriter,NativeQueue.ParallelWriter<T> AsParallelWriter()
+Helix.Collections.NativeQueue,AsReadOnly,NativeQueue.ReadOnly<T> AsReadOnly()
+Helix.Collections.NativeQueue,Clear,void Clear()
+Helix.Collections.NativeQueue,Count,int Count { get; }
+Helix.Collections.NativeQueue,Dequeue,T Dequeue()
+Helix.Collections.NativeQueue,Dispose,void Dispose() / JobHandle Dispose(JobHandle)
+Helix.Collections.NativeQueue,Enqueue,void Enqueue(T)
+Helix.Collections.NativeQueue,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeQueue,IsEmpty,bool IsEmpty()
+Helix.Collections.NativeQueue,Peek,T Peek()
+Helix.Collections.NativeQueue,ToArray,NativeArray<T> ToArray(AllocatorManager.AllocatorHandle)
+Helix.Collections.NativeQueue,TryDequeue,bool TryDequeue(out T)
+Helix.Collections.NativeQueue.Enumerator,Current,T Current { get; }
+Helix.Collections.NativeQueue.Enumerator,Dispose,void Dispose()
+Helix.Collections.NativeQueue.Enumerator,MoveNext,bool MoveNext()
+Helix.Collections.NativeQueue.Enumerator,Reset,void Reset()
+Helix.Collections.NativeQueue.ParallelWriter,Enqueue,void Enqueue(T)
+Helix.Collections.NativeQueue.ReadOnly,Count,int Count { get; }
+Helix.Collections.NativeQueue.ReadOnly,GetEnumerator,NativeQueue.Enumerator<T> GetEnumerator()
+Helix.Collections.NativeQueue.ReadOnly,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeQueue.ReadOnly,IsEmpty,bool IsEmpty()
+Helix.Collections.NativeQueue.ReadOnly,this[],T this[][int] { get; }
+Helix.Collections.NativeReference,.ctor,"NativeReference(AllocatorManager.AllocatorHandle, NativeArrayOptions = ClearMemory) / NativeReference(T, AllocatorManager.AllocatorHandle)"
+Helix.Collections.NativeReference,AsReadOnly,NativeReference.ReadOnly<T> AsReadOnly()
+Helix.Collections.NativeReference,Copy,"static void Copy(NativeReference, NativeReference)"
+Helix.Collections.NativeReference,CopyFrom,void CopyFrom(NativeReference)
+Helix.Collections.NativeReference,CopyTo,void CopyTo(NativeReference)
+Helix.Collections.NativeReference,Dispose,void Dispose() / JobHandle Dispose(JobHandle)
+Helix.Collections.NativeReference,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeReference,Value,T Value { get; set; }
+Helix.Collections.NativeReference,operators,"Implicit(NativeReference) / Equality(NativeReference, NativeReference) / Inequality(NativeReference, NativeReference)"
+Helix.Collections.NativeReference.ReadOnly,IsCreated,bool IsCreated { get; }
+Helix.Collections.NativeReference.ReadOnly,Value,T Value { get; }
+Helix.Collections.NativeReferenceUnsafeUtility,GetUnsafePtr,static Void* GetUnsafePtr<T>(NativeReference<T>)
+Helix.Collections.NativeReferenceUnsafeUtility,GetUnsafePtrWithoutChecks,static Void* GetUnsafePtrWithoutChecks<T>(NativeReference<T>)
+Helix.Collections.NativeReferenceUnsafeUtility,GetUnsafeReadOnlyPtr,static Void* GetUnsafeReadOnlyPtr<T>(NativeReference<T>)
+Helix.Collections.NativeSortExtension,BinarySearch,"static int BinarySearch<T>(NativeArray<T>, T) / static int BinarySearch<T, U>(NativeArray<T>, T, U) / static int BinarySearch<T>(NativeList<T>, T) / static int BinarySearch<T, U>(NativeList<T>, T, U)"
+Helix.Collections.NativeSortExtension,Sort,"static void Sort<T>(NativeArray<T>) / static void Sort<T, U>(NativeArray<T>, U) / static void Sort<T>(NativeList<T>) / static void Sort<T, U>(NativeList<T>, U)"

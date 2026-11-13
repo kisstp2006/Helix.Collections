@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Helix.Collections: the native containers beyond NativeArray, on the core module's allocators and safety system. -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RootNamespace>Helix.Collections</RootNamespace>
+    <AssemblyName>Helix.Collections</AssemblyName>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Helix.Collections.Tests" />
+    <Reference Include="HelixEngine.CoreModule">
+      <HintPath>$(HelixCoreModule)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Helix.Mathematics">
+      <HintPath>$([System.IO.Path]::GetDirectoryName($(HelixCoreModule)))/Helix.Mathematics.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
